@@ -1,10 +1,15 @@
-import pywhatkit
-pywhatkit.start_server()
-try:
-    pywhatkit.sendwhatmsg("+917389837625", "Helo", 14, 45)
-    print("Sucess")
-except:
-    print("Error Occured!!")    
-# pywhatkit.playonyt("Virat kohli")
-# pywhatkit.sendwhats_image("+918109098647","Pictures/WIN_20210714_13_18_35_Pro.jpg", "Oh! you are?",14,35)
+import smtplib as s
+ob = s.SMTP("smtp.gmail.com",587)
+ob.starttls()
 
+ob.login("priyanshujain09062003@gmail.com",'ozge talc hxyv tsig')
+
+subject = "Sending email using python"
+body = "This is a tutorial for how to send email using python"
+
+message = "Subject:{}\n\n{}".format(subject,body)
+# print(message)
+listofAddress = ["pj7779732@gmail.com"]
+ob.sendmail("priyanshujain09062003",listofAddress,message)
+print("send successfully......")
+ob.quit()
